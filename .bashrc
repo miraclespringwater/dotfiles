@@ -46,6 +46,8 @@ alias confba='cd $HOME && nvim .bashrc'
 alias lab='cd $HOME/lab'
 alias labc='cd $HOME/lab/courses'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME'
+#NOTE: need to run the following to exclude files not in working tree:
+# dotfiles config --local status.showUntrackedFiles no
 # ======== Functions ======== 
 # pacman
 pzf () { pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk "{print \$2}")' | xargs -ro sudo pacman -S;}
