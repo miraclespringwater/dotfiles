@@ -78,6 +78,7 @@ fm6000 -de awesomewm -c cyan -r
 #bind -m vi-insert 'Control-l: clear-screen'
 # ======== Exports =======
 export BASHRC="$HOME/.bashrc"
+export ROFI_PDF="$HOME/.config/rofi/scripts/zathura_selector.sh"
 # ======== Export Path =======
 export PATH="/home/dream/.cargo/bin:$PATH"
 export PATH="/home/dream/.local/bin:$PATH"
