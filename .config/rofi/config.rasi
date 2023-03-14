@@ -1,6 +1,6 @@
 configuration {
-kb-row-up: "Up,Control+k,Shift+Tab,Shift+ISO_Left_Tab";
-kb-row-down: "Down,Control+j";
+kb-row-up: "Up,Control+p,Shift+Tab,Shift+ISO_Left_Tab";
+kb-row-down: "Down,Control+n";
 kb-accept-entry: "Control+m,Return,KP_Enter";
 terminal: "alacritty";
 kb-remove-to-eol: "Control+Shift+e";

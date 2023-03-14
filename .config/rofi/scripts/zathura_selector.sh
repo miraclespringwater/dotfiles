@@ -10,7 +10,7 @@ _zathura() {
 }
 
 # find regular file (-type f) in doc_dir with name of *.pdf
-selected=$(find "$doc_dir" -type f -name "*.pdf" | rofi -dmenu -i -matching fuzzy -no-custom -location 0 -p "Open PDF")
+selected=$(find "$doc_dir" -type f \( -name "*.pdf" -o -name "*.epub" \)| rofi -dmenu -i -matching fuzzy -no-custom -location 0 -p "Open PDF")
 
 # if length of string is 0 (-z flag)
 if [ -z "$selected" ]; then
