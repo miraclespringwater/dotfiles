@@ -20,7 +20,7 @@ set color_statusline_bg=235
 set color_statusline_fg=223
 
 ### command line
-set color_cmdline_bg=233
+set color_cmdline_bg=235
 set color_cmdline_fg=223
 
 ### general fore/background
