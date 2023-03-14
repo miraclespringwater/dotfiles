@@ -1,0 +1,51 @@
+window:
+  opacity: .80
+font:
+  offset:
+    x: 1
+    y: 0
+  normal:
+    family: JetBrainsMono Nerd Font
+    style: Regular
+  bold:
+    family: JetBrainsMono Nerd Font
+    style: Bold
+  italic:
+    family: JetBrainsMono Nerd Font
+    style: Italic
+  bold_italic:
+    family: JetBrainsMono Nerd Font
+    style: Bold Italic
+  size: 8.8
+colors:
+  primary:
+    background: '#32302f'
+    foreground: '#d5c4a1'
+  cursor:
+    text: '#1d2021'
+    cursor: '#d5c4a1'
+  normal:
+    black:   '#1d2021'
+    red:     '#ea6962'
+    green:   '#a9b665'
+    yellow:  '#d8a657'
+    blue:    '#7daea3'
+    magenta: '#d3869b'
+    cyan:    '#89b482'
+    white:   '#d4be98'
+  bright:
+    black:   '#5a524c'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#d5c4a1'
+  transparent_background_colors: false
+cursor:
+  style:
+    shape: Block
+    blinking: Always
+  blink_interval: 750
+  blink_timeout: 0
