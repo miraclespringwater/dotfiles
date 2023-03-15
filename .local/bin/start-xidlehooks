@@ -1,15 +1,36 @@
 #!/bin/env bash
+
+#
+# NOTE: The the times are relative to the previous timer
+# (i.e. if DIM is set to 5, and LOCK is set to 10, then 
+# LOCK will trigger 15 minutes after initial timer start)
 #
 TIME_MIN_TO_DIM=5
-TIME_MIN_TO_LOCK=10
-TIME_MIN_TO_SUSPEND=30
-
-killall xidlehook -wq;
+TIME_MIN_TO_LOCK=5 # Really 10
+TIME_MIN_TO_DIM_AFTER_LOCK=1
+TIME_MIN_TO_STANDBY=10 # Really 20 (turn off screen)
+TIME_MIN_TO_SUSPEND=100 # Really 120
 
 TIME_SEC_TO_DIM=$(expr "$TIME_MIN_TO_DIM" \* 60);
 TIME_SEC_TO_LOCK=$(expr "$TIME_MIN_TO_LOCK" \* 60);
+TIME_SEC_TO_DIM_AFTER_LOCK=$(expr "$TIME_MIN_TO_DIM_AFTER_LOCK" \* 60);
+TIME_SEC_TO_STANDBY=$(expr "$TIME_MIN_TO_STANDBY" \* 60); # turn off screen
 TIME_SEC_TO_SUSPEND=$(expr "$TIME_MIN_TO_SUSPEND" \* 60);
 
-xidlehook --not-when-fullscreen --timer "$TIME_SEC_TO_DIM" '$HOME/.local/bin/all-screen-brightness .1' '$HOME/.local/bin/all-screen-brightness 1' & disown;
-xidlehook --not-when-fullscreen --timer "$TIME_SEC_TO_LOCK" '$HOME/.local/bin/all-screen-brightness 1; $HOME/.local/bin/my-screen-locker' '' & disown;
-xidlehook --not-when-fullscreen --not-when-audio --timer "$TIME_SEC_TO_SUSPEND" 'systemctl suspend' '' & disown;
+# For testing
+# TIME_SEC_TO_DIM=5
+# TIME_SEC_TO_LOCK=5
+# TIME_SEC_TO_DIM_AFTER_LOCK=5
+# TIME_SEC_TO_STANDBY=10
+# TIME_SEC_TO_SUSPEND=10
+
+killall xidlehook -wq;
+
+xset dpms 0 0 0;
+
+xidlehook --not-when-fullscreen --detect-sleep \
+  --timer "$TIME_SEC_TO_DIM" '$HOME/.local/bin/all-screen-brightness .1' '$HOME/.local/bin/all-screen-brightness 1' \
+  --timer "$TIME_SEC_TO_LOCK" '$HOME/.local/bin/all-screen-brightness 1; $HOME/.local/bin/my-screen-locker' '' \
+  --timer "$TIME_SEC_TO_DIM_AFTER_LOCK" '$HOME/.local/bin/all-screen-brightness .1' '$HOME/.local/bin/all-screen-brightness 1' \
+  --timer "$TIME_SEC_TO_STANDBY" 'xset dpms force off' 'xset dpms force on; $HOME/.local/bin/all-screen-brightness 1' \
+  --timer "$TIME_SEC_TO_SUSPEND" 'systemctl suspend' 'xset dpms force on; $HOME/.local/bin/all-screen-brightness 1'
