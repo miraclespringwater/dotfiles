@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pgrep i3lock-fancy | wc -l && /usr/bin/i3lock-fancy -f "JetBrains-Mono-Regular-Nerd-Font-Complete-Mono" -t "Welcome back, Miracle Spring Water";

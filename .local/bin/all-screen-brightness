@@ -1,0 +1,7 @@
+#!/bin/sh
+
+LEVEL=${1:-.1}
+for xDISPLAY in $(xrandr | grep \ connected | cut -d ' ' -f 1)
+do
+  xrandr --output "$xDISPLAY" --brightness "$LEVEL"
+done

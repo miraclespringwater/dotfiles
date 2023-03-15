@@ -1,0 +1,15 @@
+#!/bin/env bash
+#
+TIME_MIN_TO_DIM=5
+TIME_MIN_TO_LOCK=10
+TIME_MIN_TO_SUSPEND=30
+
+killall xidlehook -wq;
+
+TIME_SEC_TO_DIM=$(expr "$TIME_MIN_TO_DIM" \* 60);
+TIME_SEC_TO_LOCK=$(expr "$TIME_MIN_TO_LOCK" \* 60);
+TIME_SEC_TO_SUSPEND=$(expr "$TIME_MIN_TO_SUSPEND" \* 60);
+
+xidlehook --not-when-fullscreen --timer "$TIME_SEC_TO_DIM" '$HOME/.local/bin/all-screen-brightness .1' '$HOME/.local/bin/all-screen-brightness 1' & disown;
+xidlehook --not-when-fullscreen --timer "$TIME_SEC_TO_LOCK" '$HOME/.local/bin/all-screen-brightness 1; $HOME/.local/bin/my-screen-locker' '' & disown;
+xidlehook --not-when-fullscreen --not-when-audio --timer "$TIME_SEC_TO_SUSPEND" 'systemctl suspend' '' & disown;

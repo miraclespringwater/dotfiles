@@ -82,6 +82,7 @@ export ROFI_PDF="$HOME/.config/rofi/scripts/zathura_selector.sh"
 # ======== Export Path =======
 export PATH="/home/dream/.cargo/bin:$PATH"
 export PATH="/home/dream/.local/bin:$PATH"
+export PATH="/home/dream/.local/share/npm/bin:$PATH"
 # ======== App Configurations ======== 
 # = dylanraps/fff = 
 export FFF_HIDDEN=0
