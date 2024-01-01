@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Use systemctl to list active services and extract service names
+active_services=$(systemctl list-units --type=service --state=active | awk '$1 ~ /.*\.service/ {print $1}')
+
+active_user_services=$(systemctl --user list-units --type=service --state=active | awk '$1 ~ /.*\.service/ {print $1}')
+
+# Print the list of active services
+echo "############## Active services: #############"
+echo "$active_services"
+echo
+echo "############## Active user services: #############"
+echo "$active_user_services"

@@ -1,3 +1,4 @@
 #!/bin/sh
 
-pgrep i3lock-fancy | wc -l && /usr/bin/i3lock-fancy -f "JetBrains-Mono-Regular-Nerd-Font-Complete-Mono" -t "Welcome back, Miracle Spring Water";
+# pgrep i3lock-fancy | wc -l && /usr/bin/i3lock-fancy -p -f "JetBrains-Mono-Regular-Nerd-Font-Complete-Mono" -t "Welcome back, Miracle Spring Water";
+ps -A | grep i3lock || /usr/bin/i3lock-fancy -p -f "JetBrains-Mono-Regular-Nerd-Font-Complete-Mono" -t "Welcome back, Miracle Spring Water";

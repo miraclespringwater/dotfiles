@@ -1,0 +1,20 @@
+#!/bin/sh
+# Script for creating a vite project
+
+if [[ $# -eq 0 ]] ; then
+    echo 'At least give me a project name!'
+    exit 1
+fi
+
+npm create vite@latest $1 -- --template react-ts &&
+cd $1 &&
+echo "🤯 Replacing files with boilerplate..." &&
+rm -rvf src/{assets,index.css,App.css,App.tsx} &&
+cp -vrT ~/lab/utils/vite-react-ts-boiler-plate src &&
+npm i &&
+npm add -D sass &&
+echo "📓 Making initial commit..." &&
+git init &&
+git add . && git commit -m "😎 initial commit" &&
+echo "😄 All done! 💥👨‍💻⚔💫" &&
+exit 0 || exit 1

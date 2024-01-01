@@ -29,3 +29,4 @@ if [[ "$(tty)" = "/dev/tty1" ]]; then
 	sleep 1
 	startx
 fi
+. "/home/dream/.local/share/cargo/env"

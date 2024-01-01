@@ -48,14 +48,5 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# twm &
-# xclock -geometry 50x50-1+1 &
-# xterm -geometry 80x50+494+51 &
-# xterm -geometry 80x20+494-0 &
-# exec xterm -geometry 80x66+0+0 -name login
-
-# picom-pijulius launch
-#exec picom -b --animations --animation-window-mass 0.5 --animation-for-open-window zoom --animation-stiffness 350 & 
-# picom-jonaburg launch
-#exec picom -b & 
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 awesome

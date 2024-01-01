@@ -21,8 +21,8 @@ TIME_SEC_TO_SUSPEND=$(expr "$TIME_MIN_TO_SUSPEND" \* 60);
 # TIME_SEC_TO_DIM=5
 # TIME_SEC_TO_LOCK=5
 # TIME_SEC_TO_DIM_AFTER_LOCK=5
-# TIME_SEC_TO_STANDBY=10
-# TIME_SEC_TO_SUSPEND=10
+# TIME_SEC_TO_STANDBY=5
+# TIME_SEC_TO_SUSPEND=5
 
 killall xidlehook -wq;
 
@@ -31,6 +31,6 @@ xset dpms 0 0 0;
 xidlehook --not-when-fullscreen --detect-sleep \
   --timer "$TIME_SEC_TO_DIM" '$HOME/.local/bin/all-screen-brightness .1' '$HOME/.local/bin/all-screen-brightness 1' \
   --timer "$TIME_SEC_TO_LOCK" '$HOME/.local/bin/all-screen-brightness 1; $HOME/.local/bin/my-screen-locker' '' \
-  --timer "$TIME_SEC_TO_DIM_AFTER_LOCK" '$HOME/.local/bin/all-screen-brightness .1' '$HOME/.local/bin/all-screen-brightness 1' \
+  --timer "$TIME_SEC_TO_DIM_AFTER_LOCK" '$HOME/.local/bin/all-screen-brightness .1' 'xset dpms force on; $HOME/.local/bin/all-screen-brightness 1' \
   --timer "$TIME_SEC_TO_STANDBY" 'xset dpms force off' 'xset dpms force on; $HOME/.local/bin/all-screen-brightness 1' \
   --timer "$TIME_SEC_TO_SUSPEND" 'systemctl suspend' 'xset dpms force on; $HOME/.local/bin/all-screen-brightness 1'
