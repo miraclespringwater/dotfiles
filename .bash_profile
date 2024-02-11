@@ -23,6 +23,8 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/npmrc
 export XDG_CURRENT_DESKTOP=awesomewm
 export QT_QPA_PLATFORMTHEME=gtk2 keepassxc
 
+export PG_OF_PATH=/home/dream/dev/of_v20240106_linux64gcc6_release
+
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
 if [[ "$(tty)" = "/dev/tty1" ]]; then

@@ -81,6 +81,19 @@ alias gstl='git stash --list'
 alias gsta='git stash apply'
 # pandoc
 alias md2pdf='pandoc --pdf-engine=xelatex -V geometry:margin=1in -V geometry:a4paper -V fontsize:12pt -s -V colorlinks=true -V linkcolor=blue'
+# open frame works
+alias ofApps='cd $PG_OF_PATH/apps/myApps'
+# "make" alias, mainly for openFrameworks
+alias run='make run'
+# openFrameworks 
+ofv9=~/dev/of_v0.9.8_linux64_release
+ofv10=~/dev/of_v0.10.0_linux64gcc6_release
+ofv12=~/dev/of_v20240106_linux64gcc6_release
+pgPath=/projectGenerator-linux64/projectGenerator
+alias pg9='$ofv9/$pgPath'
+alias pg10='$ofv10/$pgPath'
+alias pg12='$ofv12/$pgPath'
+
 # ======== Functions ======== 
 # pacman
 pzf () { pacman -Slq | fzf --multi --preview 'cat <(pacman -Si {1}) <(pacman -Fl {1} | awk "{print \$2}")' | xargs -ro sudo pacman -S;}
@@ -128,9 +141,11 @@ cra () {
 umej () {
   sudo umount $(findmnt -nr -o target -S ${1}) && sudo eject ${1} && echo "success" 
 }
+
 # ======== EOF Programs ======== 
-#nerdfetch
-#fm6000 -de awesomewm -c cyan -r
+((RANDOM % 2)) && nerdfetch || fm6000 -de awesomewm -c cyan -r
+# bind 'set show-all-if-ambiguous on'
+# bind 'TAB:menu-complete'
 # ======== VI Mode =========
 #set -o vi
 #bind -m vi-command 'Control-l: clear-screen'
