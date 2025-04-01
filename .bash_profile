@@ -27,8 +27,8 @@ export PG_OF_PATH=/home/dream/dev/of_v20240106_linux64gcc6_release
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
-if [[ "$(tty)" = "/dev/tty1" ]]; then
-	sleep 1
-	startx
-fi
+# if [[ "$(tty)" = "/dev/tty1" ]]; then
+# 	sleep 1
+# 	startx
+# fi
 . "/home/dream/.local/share/cargo/env"

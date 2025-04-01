@@ -31,6 +31,9 @@ lvim.keys.insert_mode["<C-s>"] = "<Esc>:w<cr>"
 
 lvim.keys.normal_mode["L"] = ":BufferLineCycleNext<CR>"
 lvim.keys.normal_mode["H"] = ":BufferLineCyclePrev<CR>"
+-- Move text up and down
+lvim.keys.visual_mode["J"] = ":move '>+1<CR>gv=gv"
+lvim.keys.visual_mode["K"] = ":move '<-2<CR>gv=gv"
 -- lvim.keys.normal_mode["<leader><leader>"] = ":BufferLinePick<CR>"
 
 -- -- Use which-key to add extra bindings with the leader-key prefix
